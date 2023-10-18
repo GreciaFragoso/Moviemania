@@ -1,0 +1,9 @@
+<!-- Puedo poner ng-template en lugar de div para no generar elemento HTML -->
+<div *ngIf="movie">
+    <h2>{{movie.title}}</h2>
+    <p>{{movie.genre}}</p>
+    <p>movie works!</p>
+</div>
+<div *ngIf="!movie">
+    Movies not Found
+</div>
