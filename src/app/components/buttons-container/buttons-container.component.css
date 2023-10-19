@@ -13,6 +13,7 @@ button {
     height: 40px;
     width: fit-content;
     color: white;
-    font-style: bolt;
+    font-weight: bold;
     padding: 10px;
+    font-size: medium;
 }

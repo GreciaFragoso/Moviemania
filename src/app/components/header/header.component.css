@@ -21,3 +21,13 @@
     right: 150px;
     font-style: italic;
 }
+
+.frase {
+    font-weight: bold;
+}
+
+.autor {
+    font-weight: lighter;
+    position: relative;
+    left: 350px;
+}
