@@ -1,0 +1,18 @@
+.buttons-container {
+    /* display: grid;
+    grid-template-columns: 200px; */
+    column-count: auto;
+    justify-content: center;
+    height: 60%;
+}
+
+button {
+    background-color: #7A2281;
+    border-color: #39023A;
+    border-radius: 10px;
+    height: 40px;
+    width: fit-content;
+    color: white;
+    font-style: bolt;
+    padding: 10px;
+}

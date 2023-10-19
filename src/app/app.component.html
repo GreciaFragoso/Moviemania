@@ -1,6 +1,12 @@
-<h1>Hola {{ title }}</h1>
-<button (click) = "changeTitle()">Change</button>
-
-<app-movie [movie] = 'movie' *ngFor = 'let movie of movies'></app-movie> <!--pasa valor al decorador input del hijo movie-->
+<app-header></app-header>
+<section class = 'father-container'>
+    <app-sidebar></app-sidebar>
+    <app-cards-container>
+        <h1>Hola {{ title }}</h1>
+        <button (click) = "changeTitle()">Change</button>
+        <app-movie [movie] = 'movie' *ngFor = 'let movie of movies'></app-movie> <!--pasa valor al decorador input del hijo movie-->
+    </app-cards-container>
 <!-- movie es una input property del componente app-movie, recibe un valor 
 del componente padre, valor asignado viene de ngFor, bucle para iterar y renderizar la lista de elementos movies -->
+</section>
+<app-footer></app-footer>

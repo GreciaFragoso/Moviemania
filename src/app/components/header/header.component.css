@@ -1,0 +1,23 @@
+.header {
+    background-color: rgb(68, 41, 94, 0.3);
+    width: 100%;
+    height: 130px;
+    color: #39023A;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin: 0 0 15px 0;
+}
+
+.logo {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.cita-header {
+    color: #39023A;
+    position: absolute;
+    right: 150px;
+    font-style: italic;
+}
