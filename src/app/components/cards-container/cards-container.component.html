@@ -1,3 +1,12 @@
 <section class = 'cards-container'>
-    <p>cards-container works!</p>
+    <!-- <app-movie [movie] = 'movie' *ngFor = 'let movie of movies'></app-movie> -->
+    <section class = 'card' *ngFor = 'let item of data'>
+        <ul>
+            <li>{{item.title}}({{item.original_language}})</li>
+            <img [src] = "'https://image.tmdb.org/t/p/w500/' + item.poster_path">
+        </ul>
+        <!-- <li>
+            <app-movie *ngFor = 'let item of data'></app-movie>
+        </li> -->
+    </section>
 </section>

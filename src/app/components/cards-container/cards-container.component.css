@@ -1,4 +1,29 @@
 .cards-container {
     background-color: #110126;
+    width: 100%;
     height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    max-width: 150px;
+}
+
+ul {
+    width: auto;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
