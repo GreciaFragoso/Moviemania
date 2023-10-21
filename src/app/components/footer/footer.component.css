@@ -1,5 +1,5 @@
 .footer {
-    background-color: rgb(68, 41, 94, 0.3);
+    background-color: rgb(197, 157, 228);
     width: 100%;
     height: 70px;
     display: flex;
@@ -8,5 +8,6 @@
     align-items: center;
     color: #39023A;
     font-weight: bolder;
-    /*position: absolute;*/
+    position: absolute;
+    z-index: 1;
 }

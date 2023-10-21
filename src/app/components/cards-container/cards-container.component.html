@@ -1,12 +1,11 @@
 <section class = 'cards-container'>
     <!-- <app-movie [movie] = 'movie' *ngFor = 'let movie of movies'></app-movie> -->
-    <section class = 'card' *ngFor = 'let item of data'>
-        <ul>
-            <li>{{item.title}}({{item.original_language}})</li>
-            <img [src] = "'https://image.tmdb.org/t/p/w500/' + item.poster_path">
-        </ul>
+    <button class = 'card' *ngFor = 'let item of data' matTooltipPosition = 'left' [matTooltip] = 'item.title'>
+        <!-- <li>{{item.title}}({{item.original_language}})</li> -->
+        <img [src] = "'https://image.tmdb.org/t/p/w500/' + item.poster_path" [alt] = item.title>
+        <section class = 'movietitle'><h3>{{item.title}}</h3></section>
         <!-- <li>
             <app-movie *ngFor = 'let item of data'></app-movie>
         </li> -->
-    </section>
+    </button>
 </section>

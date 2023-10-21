@@ -1,12 +1,15 @@
 .header {
-    background-color: rgb(68, 41, 94, 0.3);
+    background-color: rgb(197, 157, 228);
     width: 100%;
     height: 130px;
     color: #39023A;
     display: flex;
     align-items: center;
-    position: relative;
+    /*position: relative;*/
+    z-index: 1;
+    position: fixed;
     margin: 0 0 15px 0;
+    border-bottom: 10px solid white;
 }
 
 .logo {
