@@ -1,11 +1,16 @@
 <section class = 'cards-container'>
     <!-- <app-movie [movie] = 'movie' *ngFor = 'let movie of movies'></app-movie> -->
-    <button class = 'card' *ngFor = 'let item of data' matTooltipPosition = 'left' [matTooltip] = 'item.title'>
+    <button class = 'card' *ngFor = 'let item of data' matTooltipPosition = 'above' [matTooltip] = 'item.release_date.slice(0, 4)'>
         <!-- <li>{{item.title}}({{item.original_language}})</li> -->
         <img [src] = "'https://image.tmdb.org/t/p/w500/' + item.poster_path" [alt] = item.title>
-        <section class = 'movietitle'><h3>{{item.title}}</h3></section>
+        <section class = 'movietitle'>
+            <h3>{{item.title}}</h3>
+            <!-- <h5>{{item.release_date.slice(0, 4)}}</h5> -->
+        </section>
         <!-- <li>
             <app-movie *ngFor = 'let item of data'></app-movie>
         </li> -->
     </button>
+
+    <app-paginator></app-paginator>
 </section>

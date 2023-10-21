@@ -1,8 +1,6 @@
 <!-- Puedo poner ng-template en lugar de div para no generar elemento HTML -->
 <div *ngIf="movie"> <!-- sólo genera la estructura si esxiste Movie -->
-    <img src = 'movie.poster_path'>
     <h2>{{movie.title}}</h2>
-    <p>{{movie.genre_ids}}</p>
     <p>{{movie.original_language}}</p>
     <p *ngIf="movie.adult">No recomendado para menores de 13 años</p>
 </div>

@@ -9,6 +9,10 @@ import { ApiService } from 'src/app/services/api.service';
 export class CardsContainerComponent {
 
   data: any = {};
+  currentPage: number = 1; // esto es para la paginación, me falta la función
+  totalPages: number = 40596;
+  pageSize: number = 20;
+  pages: number[] = [];
   // http = inject(HttpClient);
   // objectAPI: APIresponse = {};
   // movies: Movie[] = [];
@@ -19,9 +23,10 @@ export class CardsContainerComponent {
   }
 
   llenarData(){
-    this.apiService.getData(1).subscribe(data => {
+    this.apiService.getData(this.currentPage).subscribe(data => {
+      // console.log(data);
       this.data = data.results;
-      console.log(this.data);
+      // console.log(this.data);
     })
   }
 }
