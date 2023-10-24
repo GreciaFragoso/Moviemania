@@ -1,3 +1,20 @@
+## 1.0.1 - 2023-10-25
+
+### Sprint Learning
+
+- Creación y uso de servicios en Angular
+- Creación y uso de componentes
+- Instalación y uso de Angular Material
+- Uso de paginator
+
+### Added
+
+- Estilos en los componentes
+- Maquetación de la vista principal
+- Visualización de las películas
+- Paginación
+
+
 ## 1.0.0 - 2023-10-18
 
 ### Sprint learning
