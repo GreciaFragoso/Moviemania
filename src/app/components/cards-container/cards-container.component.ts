@@ -37,9 +37,7 @@ export class CardsContainerComponent {
   handlePage(e: PageEvent) {
     this.page_size = e.pageSize;
     this.currentPage = e.pageIndex + 1;
-    this.llenarData(this.currentPage);
+    this.llenarData(this.currentPage); // se vuelve a llamar a la función con el nuevo número de página
   }
 
-  total_length: number = 40586;
-  page_number: number = 1;
 }

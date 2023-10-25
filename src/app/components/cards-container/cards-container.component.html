@@ -9,7 +9,7 @@
             <app-movie *ngFor = 'let item of data'></app-movie>
         </li> -->
     </button>
-    <mat-paginator [length] = 'total_length'
+    <mat-paginator [length] = 'totalPages'
                 [pageSize] = 'page_size'
                 [pageSizeOptions]='pageSizeOptions'
                (page) = "handlePage($event)"
