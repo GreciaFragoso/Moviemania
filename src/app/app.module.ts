@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'
 import {MatTooltipModule} from '@angular/material/tooltip'
 import { MatPaginatorModule } from '@angular/material/paginator'
+import { RouterModule } from '@angular/router'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,7 +24,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     SidebarComponent,
     CardsContainerComponent,
     ButtonsContainerComponent,
-    PaginatorComponent
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,6 +32,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     HttpClientModule,
     MatTooltipModule,
     MatPaginatorModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

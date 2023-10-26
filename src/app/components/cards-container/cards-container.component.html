@@ -1,13 +1,11 @@
 <section class = 'cards-container'>
-    <button class = 'card' *ngFor = 'let item of data' matTooltipPosition = 'above' [matTooltip] = 'item.release_date.slice(0, 4)'>
+    <button class = 'card' *ngFor = 'let item of movies' matTooltipPosition = 'above' [matTooltip] = 'item.release_date.slice(0, 4)' (click) = 'getMovieDetails(item.id)'>
         <img [src] = "'https://image.tmdb.org/t/p/w500/' + item.poster_path" [alt] = item.title>
         <section class = 'movietitle'>
             <h3>{{item.title}}</h3>
+            <a [routerLink]="['movie-details/:id', item.id]">Ver detalles</a>
             <!-- <h5>{{item.release_date.slice(0, 4)}}</h5> -->
         </section>
-        <!-- <li>
-            <app-movie *ngFor = 'let item of data'></app-movie>
-        </li> -->
     </button>
     <mat-paginator [length] = 'totalPages'
                 [pageSize] = 'page_size'

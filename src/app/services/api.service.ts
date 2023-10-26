@@ -12,9 +12,17 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  public getData(page: number) : Observable<any> {
+  getData(page: number) : Observable<any> {
     return this.http.get<any>(`${this.urlAPI}/discover/movie?api_key=${this.api_key}&page=${page}`)
     }
+
+
+  movieDetails(movieid: number) {
+    return this.http.get<any>(`${this.urlAPI}/movie/${movieid}?api_key=${this.api_key}`);
+  }
+  // public getGenreData(page: number) : Observable<any> {
+  //   return this.http.get<any>(`${this.urlAPI}/discover/movie?api_key=${this.api_key}&page=${page}`)
+  // }
   }
 
   //   this.http.get<APIresponse>('https://api.themoviedb.org/3/discover/movie', {
