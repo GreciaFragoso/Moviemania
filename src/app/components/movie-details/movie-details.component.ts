@@ -22,8 +22,8 @@ export class MovieDetailsComponent implements OnInit {
   }
 
   private getDetailsbyId(): void {
-    this.route.queryParams.subscribe(params => {
-      this.id = +params['q'];
+    this.route.queryParams.subscribe(params => { //queryParams en lugar de params
+      this.id = +params['id']; // antes era q en los corchetes
       console.log(this.id)
       this.fillDetails(this.id);
     })

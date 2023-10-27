@@ -14,6 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CardsContainerComponent } from './components/cards-container/cards-container.component';
 import { ButtonsContainerComponent } from './components/buttons-container/buttons-container.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
     CardsContainerComponent,
     ButtonsContainerComponent,
     PaginatorComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

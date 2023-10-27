@@ -43,10 +43,10 @@ export class CardsContainerComponent {
   }
 
   getMovieDetails(id: number){
-    this.router.navigate(['movie-details/id:'], {
-      queryParams: { q: id }
-    })
-
+    // this.router.navigate(['movie-details/id:'], {
+    //   queryParams: { q: id }
+    // })
+    window.open(`/movie-details?id=${id}`, '_blank');
   }
 
 }

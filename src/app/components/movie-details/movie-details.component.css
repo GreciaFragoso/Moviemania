@@ -1,0 +1,11 @@
+.movie-details-container {
+    background:#110126;
+    color:  white;
+    display: flex;
+    flex-direction: row;
+}
+
+img {
+    width: 300px;
+    height: 500px;
+}
