@@ -26,14 +26,6 @@
     padding: 20px;
 }
 
-.backdrop {
-    width: 100%;
-}
-
-img {
-    width: 20%;
-}
-
 .text-details {
     width: 20%; 
     background: rgb(0, 0, 0, 0.7);
