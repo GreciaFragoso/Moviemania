@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http'
 import {MatTooltipModule} from '@angular/material/tooltip'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { RouterModule } from '@angular/router'
+import { CommonModule } from '@angular/common'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { HomeComponent } from './components/home/home.component';
     MatTooltipModule,
     MatPaginatorModule,
     RouterModule,
+    CommonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,3 @@
-import { query } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
@@ -11,6 +10,9 @@ import { ApiService } from 'src/app/services/api.service';
 export class MovieDetailsComponent implements OnInit {
   id: number = 0;
   details: any = {};
+  complete_poster_path: string = '';
+  imgs_url: string = 'https://image.tmdb.org/t/p/w500/';
+  backdrop_image: string = '';
 
   constructor(
     private apiService: ApiService,
@@ -38,7 +40,14 @@ export class MovieDetailsComponent implements OnInit {
     this.apiService.movieDetails(movieid).subscribe(data => {
       console.log(data);
       this.details = data;
+      // this.backdrop_image = this.imgs_url + this.details.backdrop_path;
     })
   }
 
+  getBackdropImage() {
+    if (this.details) {
+      return this.imgs_url + this.details.backdrop_path;
+    }
+    return '';
+  }
 }

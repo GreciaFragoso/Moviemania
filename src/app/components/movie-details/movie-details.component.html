@@ -1,7 +1,12 @@
 <section class = 'movie-details-container'>
-    <img [src] = "'https://image.tmdb.org/t/p/w500/' + details.poster_path" [alt] = details.title>
-    <section class = 'text-details'>
-        <p>movie-details works!</p>
-        <h1>{{details.original_title}}</h1>
+    <section class = 'movie-details-backdrop' [style]="{'background-image': 'url(' + getBackdropImage() + ')'}">
+        <!-- <img [src] = "'https://image.tmdb.org/t/p/w500/' + details.poster_path" [alt] = details.title> -->
+        <section class = 'movie-title'>
+            <h2>{{details.original_title}}</h2>
+            <h1>{{details.release_date.slice(0, 4)}}</h1>
+        </section>
+        <section class = 'text-details'>
+            <p>{{details.overview}}</p>
+        </section>
     </section>
 </section>
