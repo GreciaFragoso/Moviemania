@@ -1,9 +1,16 @@
 <section class = 'movie-details-container'>
     <section class = 'movie-details-backdrop' [style]="{'background-image': 'url(' + getBackdropImage() + ')'}">
-        <!-- <img [src] = "'https://image.tmdb.org/t/p/w500/' + details.poster_path" [alt] = details.title> -->
-        <section class = 'movie-title'>
-            <h2>{{details.original_title}}</h2>
-            <h1>{{details.release_date.slice(0, 4)}}</h1>
+        <img class = 'logo' src = './../../../assets/moviemania.png' alt = 'moviemania'>
+        <section class = 'title-poster'>
+            <img class = 'movie-poster' [src] = "'https://image.tmdb.org/t/p/w500/' + details.poster_path" [alt] = details.title>
+            <section class = 'movie-title'>
+                <section class = 'votes-section'>
+                    <p class = 'votes'>{{details.vote_average}}</p>
+                    <h1>{{details.vote_count}} votes</h1>
+                </section>
+                <h2 class = 'title'>{{details.original_title}}</h2>
+                <h1>{{details.release_date.slice(0, 4)}}</h1>
+            </section>
         </section>
         <section class = 'text-details'>
             <p>{{details.overview}}</p>
