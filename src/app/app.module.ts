@@ -16,6 +16,7 @@ import { CardsContainerComponent } from './components/cards-container/cards-cont
 import { ButtonsContainerComponent } from './components/buttons-container/buttons-container.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { HomeComponent } from './components/home/home.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HomeComponent } from './components/home/home.component';
     ButtonsContainerComponent,
     PaginatorComponent,
     HomeComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,

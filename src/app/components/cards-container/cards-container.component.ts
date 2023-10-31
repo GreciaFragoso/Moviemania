@@ -25,6 +25,10 @@ export class CardsContainerComponent {
     this.llenarData(this.currentPage);
   }
 
+  genreFilter(genreId: number) {
+    
+  }
+
   llenarData(page: number){
     this.apiService.getData(page).subscribe(data => {
       console.log(data);

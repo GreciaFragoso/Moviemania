@@ -8,11 +8,15 @@
                     <p class = 'votes'>{{details.vote_average}}</p>
                     <h1>{{details.vote_count}} votes</h1>
                 </section>
-                <h2 class = 'title'>{{details.original_title}}</h2>
-                <h1>{{details.release_date.slice(0, 4)}}</h1>
+                <h1 class = 'title'>{{details.original_title}}</h1>
+                <h1>{{releaseYear}}</h1>
+                <section *ngFor = 'let genre of movieGenres' class = 'movie-genres'>
+                    <p>{{genre.name}}</p>
+                </section>
             </section>
         </section>
         <section class = 'text-details'>
+            <p>{{movieGenres}}</p>
             <p>{{details.overview}}</p>
         </section>
     </section>

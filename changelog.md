@@ -1,4 +1,16 @@
-## 1.0.1 - 2023-10-25
+## 1.2.0 - 2023-10-31
+
+### Sprint Learning
+
+- Uso de ruteo en Angular
+- Uso de atributo target para abrir nueva pestaña
+
+### Added
+
+- Detalle de película en nueva pestaña
+
+
+## 1.1.0 - 2023-10-25
 
 ### Sprint Learning
 

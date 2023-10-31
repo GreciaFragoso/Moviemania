@@ -22,5 +22,13 @@ export interface Movie {
     vote_count: number;
 }
 
+export interface GenresList {
+    genres: Genre[];
+}
+
+export interface Genre {
+    id: number;
+    name: string;
+}
 
 // aquí defino las interfaces (estructura de un objeto, sólo define la forma) o clases

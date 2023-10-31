@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-movie-details',
@@ -13,6 +14,10 @@ export class MovieDetailsComponent implements OnInit {
   complete_poster_path: string = '';
   imgs_url: string = 'https://image.tmdb.org/t/p/w500/';
   backdrop_image: string = '';
+  genres: any = {};
+  genresStrings: any = [];
+  releaseYear: string = '';
+  movieGenres: any[] = [];
 
   constructor(
     private apiService: ApiService,
@@ -40,7 +45,23 @@ export class MovieDetailsComponent implements OnInit {
     this.apiService.movieDetails(movieid).subscribe(data => {
       console.log(data);
       this.details = data;
+      this.releaseYear = this.details.release_date.slice(0,4);
+      console.log(this.details.genres)
+      this.movieGenres = this.details.genres // asigno géneros de la  película actual
+      // console.log(this.movieGenres)
       // this.backdrop_image = this.imgs_url + this.details.backdrop_path;
+      // this.apiService.getGenresList().subscribe(genres => { // solicito respuesta de API de la lista de géneros
+      //   // console.log(this.movieGenres)
+      //   this.movieGenres.forEach((element: object) => { // for each a los géneros de la película
+      //     for(let i = 0; i < genres.genres.length; i++) {
+      //       if(genres.genres[i].id === element.id) { // compara t
+      //         this.genresStrings.push(genres.genres[i].name);
+      //       }
+      //     }
+      //   })
+      //   console.log(this.genresStrings)
+      //   return this.genresStrings;
+      // })
     })
   }
 
