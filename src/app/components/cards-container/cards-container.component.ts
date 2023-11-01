@@ -2,6 +2,7 @@ import { Input, Component, inject } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
+import { SharedServiceService } from 'src/app/services/shared/shared-service.service';
 
 @Component({
   selector: 'app-cards-container',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cards-container.component.css']
 })
 export class CardsContainerComponent {
-  @Input() filterOption: string = '';
+  // @Input() filterOption = '';
 
   movies: any = [];
   currentPage: number = 1; // esto es para la paginación, me falta la función
@@ -17,28 +18,44 @@ export class CardsContainerComponent {
   page_size: number = 20;
   pages: number[] = [];
   pageSizeOptions = [20];
+  selectedSort: string = 'popularity.desc';
+  filterOption: string = '';
   // http = inject(HttpClient);
   // objectAPI: APIresponse = {};
   // movies: Movie[] = [];
-  constructor(private apiService: ApiService, private router: Router) {}
+  constructor(private apiService: ApiService, private router: Router, private sharedService: SharedServiceService) {
+    this.sharedService.filterSelected$.subscribe(filterOption => {
+      console.log(filterOption);
+      this.filterOption = filterOption;
+    })
+  }
 
   ngOnInit() {
     this.llenarData(this.currentPage);
     console.log(this.filterOption)
   }
 
-  genreFilter(genreId: number) {
-    
+  // genreFilter() {
+  //   this.apiService.getGenreFilter(this.filterOption, this.currentPage, this.selectedSort).subscribe(data => {
+  //     console.log(data);
+  //     this.movies = data.results;
+  //     console.log(this.movies)
+  //     this.currentPage = data.page;
+  //     this.totalPages = data.total_results;
+  //   })
+  // }
+  receiveFilterSelected(filterOption: string) {
+    console.log(filterOption)
   }
 
   llenarData(page: number){
-    this.apiService.getData(page).subscribe(data => {
+    this.apiService.getGenreFilter(page, this.filterOption/*, this.selectedSort*/).subscribe(data => {
+    // this.apiService.getData(page).subscribe(data => {
       console.log(data);
       this.movies = data.results;
       console.log(this.movies)
       this.currentPage = data.page;
       this.totalPages = data.total_results;
-      // console.log(this.data);
     })
   }
 
@@ -49,10 +66,6 @@ export class CardsContainerComponent {
   }
 
   getMovieDetails(id: number){
-    // this.router.navigate(['movie-details/id:'], {
-    //   queryParams: { q: id }
-    // })
     window.open(`/movie-details?id=${id}`, '_blank');
   }
-
 }

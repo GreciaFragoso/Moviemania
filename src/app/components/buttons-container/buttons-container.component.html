@@ -1,22 +1,3 @@
 <section class = 'buttons-container'>
-    <button *ngFor="let filter of AllFilters" (click) = "OnSelectedFilter(filter)">{{filter}}</button>
-    <!-- <button (click) = "OnSelectedFilter('Action')">Action</button>
-    <button (click) = "OnSelectedFilter('Adventure')">Adventure</button>
-    <button (click) = "OnSelectedFilter('Animation')">Animation</button>
-    <button (click) = "OnSelectedFilter('Comedy')">Comedy</button>
-    <button (click) = "OnSelectedFilter('Crime')">Crime</button>
-    <button (click) = "OnSelectedFilter('Documentary')">Documentary</button>
-    <button (click) = "OnSelectedFilter('Drama')">Drama</button>
-    <button (click) = "OnSelectedFilter('Family')">Family</button>
-    <button (click) = "OnSelectedFilter('Fantasy')">Fantasy</button>
-    <button (click) = "OnSelectedFilter('History')">History</button>
-    <button (click) = "OnSelectedFilter('Horror')">Horror</button>
-    <button (click) = "OnSelectedFilter('Music')">Music</button>
-    <button (click) = "OnSelectedFilter('Mistery')">Mistery</button>
-    <button (click) = "OnSelectedFilter('Romance')">Romance</button>
-    <button (click) = "OnSelectedFilter('Science Fiction')">Science Fiction</button>
-    <button (click) = "OnSelectedFilter('TV Movie')">TV Movie</button>
-    <button (click) = "OnSelectedFilter('Thriller')">Thriller</button>
-    <button (click) = "OnSelectedFilter('War')">War</button>
-    <button (click) = "OnSelectedFilter('Western')">Western</button> -->
+    <button *ngFor="let filter of AllFilters" (click) = "OnSelectedFilter(filter.id.toString())">{{filter.name}}</button>
 </section>

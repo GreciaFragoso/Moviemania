@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GenresList, Movie } from '../models/movie.model';
@@ -29,8 +29,15 @@ export class ApiService {
     return this.http.get<GenresList>(`${this.urlAPI}/genre/movie/list?api_key=${this.api_key}`)
   }
 
-  getGenreFilter(genreId: number, page: number, sortGenres: string): Observable<any> {
-    return this.http.get<any>(`${this.urlAPI}/discover/movie?api_key=${this.api_key}&with_genres=${genreId}&sort_by=${sortGenres}&page=${page}`)
+  getGenreFilter(page: number, genreId: string /*, selectedSort: string*/): Observable<any> {
+    // return this.http.get<any>(`${this.urlAPI}/discover/movie?api_key=${this.api_key}&with_genres=${genreId}&sort_by=${selectedSort}&page=${page}`)
+    const params = new HttpParams()
+    .set('api_key', this.api_key)
+    .set('page', page)
+    .set('sort_by', 'popularity.desc')
+    .set('with_genres', genreId);
+
+    return this.http.get<any>(`${this.urlAPI}discover/movie`, { params });
   }
 
   }

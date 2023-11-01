@@ -1,4 +1,4 @@
-<section *ngIf = "filterOption === ''" class = 'cards-container no-filter'>
+<section class = 'cards-container no-filter'>
     <button class = 'card' *ngFor = 'let item of movies' matTooltipPosition = 'above' [matTooltip] = 'item.release_date.slice(0, 4)' (click) = 'getMovieDetails(item.id)'>
         <img [src] = "'https://image.tmdb.org/t/p/w500/' + item.poster_path" [alt] = item.title>
         <section class = 'movietitle'>

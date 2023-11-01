@@ -1,5 +1,6 @@
 import { Output, Component, EventEmitter } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service'; 
+import { SharedServiceService } from 'src/app/services/shared/shared-service.service';
 
 @Component({
   selector: 'app-buttons-container',
@@ -7,27 +8,25 @@ import { ApiService } from 'src/app/services/api.service';
   styleUrls: ['./buttons-container.component.css']
 })
 export class ButtonsContainerComponent {
-  @Output() filterSelected = new EventEmitter<string>();
-  //Allfilters: string[] = ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime', 'Documentary']
-  constructor(private apiService: ApiService) {}
+  // @Output() filterSelected = new EventEmitter<string>();
+  constructor(private apiService: ApiService, private sharedService: SharedServiceService) {}
   
   ngOnInit() {
     this.getAllGenres();
   }
 
-  AllFilters: string[] = [];
+  AllFilters: any[] = [];
 
   getAllGenres() {
     this.apiService.getGenresList().subscribe(data => {
-      data.genres.forEach((element) => {
-        this.AllFilters.push((element.name));
+      this.AllFilters = data.genres;
+      console.log(this.AllFilters);
       });
-    })
-    return this.AllFilters;
   }
 
   OnSelectedFilter(filterOption: string) {
-    this.filterSelected.emit(filterOption);
+    // this.filterSelected.emit(filterOption);
+    this.sharedService.selectedFilter(filterOption);
     console.log(filterOption)
   }
 }
