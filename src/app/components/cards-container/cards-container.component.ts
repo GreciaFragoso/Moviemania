@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Input, Component, inject } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./cards-container.component.css']
 })
 export class CardsContainerComponent {
+  @Input() filterOption: string = '';
 
   movies: any = [];
   currentPage: number = 1; // esto es para la paginación, me falta la función
@@ -23,6 +24,7 @@ export class CardsContainerComponent {
 
   ngOnInit() {
     this.llenarData(this.currentPage);
+    console.log(this.filterOption)
   }
 
   genreFilter(genreId: number) {

@@ -18,7 +18,7 @@ export class ApiService {
     }
 
 
-  movieDetails(movieid: number) {
+  movieDetails(movieid: number) : Observable<Movie> {
     return this.http.get<Movie>(`${this.urlAPI}/movie/${movieid}?api_key=${this.api_key}`);
   }
   // public getGenreData(page: number) : Observable<any> {
