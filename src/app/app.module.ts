@@ -18,6 +18,9 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { HomeComponent } from './components/home/home.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
+import { SharedServiceService } from './services/shared/shared-service.service';
+import { ApiService } from './services/api.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +43,7 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
     RouterModule,
     CommonModule,
   ],
-  providers: [],
+  providers: [SharedServiceService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
