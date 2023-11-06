@@ -29,13 +29,13 @@ export class ApiService {
     return this.http.get<GenresList>(`${this.urlAPI}/genre/movie/list?api_key=${this.api_key}`)
   }
 
-  getGenreFilter(page: number, genreId: string /*, selectedSort: string*/): Observable<any> {
+  getGenreFilter(page: number, genreId: string, selectedSort: string): Observable<any> {
     // return this.http.get<any>(`${this.urlAPI}/discover/movie?api_key=${this.api_key}&with_genres=${genreId}&sort_by=${selectedSort}&page=${page}`)
     const params = new HttpParams()
     .set('api_key', this.api_key)
     .set('page', page)
-    .set('sort_by', 'popularity.desc')
-    .set('with_genres', genreId);
+    .set('with_genres', genreId)
+    .set('sort_by', selectedSort);
 
     return this.http.get<any>(`${this.urlAPI}discover/movie`, { params });
   }

@@ -5,6 +5,7 @@ import {MatTooltipModule} from '@angular/material/tooltip'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { RouterModule } from '@angular/router'
 import { CommonModule } from '@angular/common'
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,7 @@ import { ApiService } from './services/api.service';
     MatPaginatorModule,
     RouterModule,
     CommonModule,
+    FormsModule,
   ],
   providers: [SharedServiceService, ApiService],
   bootstrap: [AppComponent]

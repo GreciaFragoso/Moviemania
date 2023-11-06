@@ -3,6 +3,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { SharedServiceService } from 'src/app/services/shared/shared-service.service';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-cards-container',
@@ -18,11 +19,10 @@ export class CardsContainerComponent {
   page_size: number = 20;
   pages: number[] = [];
   pageSizeOptions = [20];
-  selectedSort: string = 'popularity.desc';
+  selectedSort: string = '';
   filterOption: string = '';
-  // http = inject(HttpClient);
-  // objectAPI: APIresponse = {};
-  // movies: Movie[] = [];
+  release_year: string = '';
+ 
   constructor(private apiService: ApiService, 
               private router: Router, 
               private sharedService: SharedServiceService,
@@ -34,35 +34,50 @@ export class CardsContainerComponent {
   }
 
   ngOnInit() {
-    this.sharedService.filterSelected$.subscribe(filtro => {
+    combineLatest([
+      this.sharedService.filterSelected$,
+      this.sharedService.selectedSort$
+    ]).subscribe(([filtro, orden]) => {
       this.filterOption = filtro;
-      this.cdRef.detectChanges();
-      this.llenarData(this.currentPage, this.filterOption); // coloco mi función de llenar data dentro del escuchador de cambios
+      this.selectedSort = orden;
+      this.llenarData(this.currentPage, this.filterOption, this.selectedSort);
       console.log(this.filterOption)
+      console.log(this.selectedSort)
+      // this.cdRef.detectChanges();
     })
+    // this.sharedService.filterSelected$.subscribe(filtro => {
+    //   this.filterOption = filtro;
+    //   this.cdRef.detectChanges();
+    //   this.llenarData(this.currentPage, this.filterOption, this.selectedSort); // coloco mi función de llenar data dentro del escuchador de cambios
+    //   console.log(this.filterOption);
+    // })
+
+    // this.sharedService.selectedSort$.subscribe(orden => {
+    //   this.selectedSort = orden;
+    //   this.cdRef.detectChanges();
+    //   this.llenarData(this.currentPage, this.filterOption, this.selectedSort);
+    //   console.log(this.filterOption);
+    // })
     // this.llenarData(this.currentPage, this.filterOption);
     // console.log(this.filterOption)
   }
 
-  // genreFilter() {
-  //   this.apiService.getGenreFilter(this.filterOption, this.currentPage, this.selectedSort).subscribe(data => {
-  //     console.log(data);
-  //     this.movies = data.results;
-  //     console.log(this.movies)
-  //     this.currentPage = data.page;
-  //     this.totalPages = data.total_results;
-  //   })
-  // }
   receiveFilterSelected(filterOption: string) {
     console.log(filterOption)
   }
 
-  llenarData(page: number, filterOption: string) {
-    this.apiService.getGenreFilter(page, this.filterOption/*, this.selectedSort*/).subscribe(data => {
+  receiveSortSeleted(selectedSort: string) {
+    console.log(selectedSort);
+  }
+
+  llenarData(page: number, filterOption: string, selectedSort: string) { // agrego selectedSortOption 
+    this.apiService.getGenreFilter(page, this.filterOption, this.selectedSort).subscribe(data => {
     // this.apiService.getData(page).subscribe(data => {
       console.log(data);
       console.log(this.filterOption);
+      console.log(this.selectedSort);
       this.movies = data.results;
+      // this.release_year = this.movies.release_date.slice(0,4);
       console.log(this.movies)
       this.currentPage = data.page;
       this.totalPages = data.total_results;
@@ -72,7 +87,7 @@ export class CardsContainerComponent {
   handlePage(e: PageEvent) {
     this.page_size = e.pageSize;
     this.currentPage = e.pageIndex + 1;
-    this.llenarData(this.currentPage, this.filterOption); // se vuelve a llamar a la función con el nuevo número de página
+    this.llenarData(this.currentPage, this.filterOption, this.selectedSort); // se vuelve a llamar a la función con el nuevo número de página
   }
 
   getMovieDetails(id: number){

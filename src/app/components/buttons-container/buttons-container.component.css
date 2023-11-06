@@ -1,9 +1,22 @@
+.father-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+    width: 100%;
+    gap: 10px;
+}
+
 .buttons-container {
     /* display: grid;
     grid-template-columns: 200px; */
     column-count: auto;
     justify-content: center;
     height: 60%;
+    margin: 0 30px;
 }
 
 button {
@@ -16,4 +29,10 @@ button {
     font-weight: bold;
     padding: 10px;
     font-size: medium;
+}
+
+select {
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
 }

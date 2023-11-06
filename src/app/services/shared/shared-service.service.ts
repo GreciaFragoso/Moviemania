@@ -12,5 +12,13 @@ export class SharedServiceService {
     this.filterSelectedSource.next(filterOption);
   }
 
+  // comunicar opción de ordenamiento
+  private sortSelectedSource = new BehaviorSubject<string>('');
+  selectedSort$ = this.sortSelectedSource.asObservable();
+
+  selectedSort(sortOption: string) {
+    this.sortSelectedSource.next(sortOption);
+  }
+
   constructor() { }
 }
