@@ -1,9 +1,6 @@
 <section class = 'father-container'>
     <h1>Sort by</h1>
     <select [(ngModel)] = 'defaultSort' (change) = "OnSelectedSort($any($event.target).value)">
-        <!-- <option value = 'popularity.desc'>More popular</option>
-        <option value = 'vote_average.desc'>Best voted</option>
-        <option value = 'vote_average.asc'>Worst voted</option> -->
         <option *ngFor="let option of sortOptions" [value]="option.option">{{ option.text }}</option>
     </select>
     <h1>Filter</h1>

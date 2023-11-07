@@ -1,3 +1,20 @@
+## 2.0.0 - 2023-11-08
+
+### Sprint Learning
+
+- Uso de servicios para comunicación entre componentes
+- Uso de params HTTP
+
+### Added
+
+- Filtros para películas por género
+- Ordenamiento por popularidad o votos
+
+### Fixed
+
+- Botones para filtrado generados mediante ngFor
+
+
 ## 1.2.0 - 2023-10-31
 
 ### Sprint Learning
