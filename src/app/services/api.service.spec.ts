@@ -2,6 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { ApiService } from './api.service';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { of } from 'rxjs';
 
 const movieListMock = [
   {
@@ -545,10 +546,14 @@ describe('ApiService', () => {
     // httpClientMock.get.mockReturnValue(movieListMock);
   });
 
-  it('getGenreFilter http have been called', () => {
-    httpClientMock.get.mockReturnValue(movieListMock);
-    service.getGenreFilter(mockPage1, mockGenreId1, mockSelectedSort1);
-    expect(httpClientMock.get).toHaveBeenCalled();
+  it('getGenreFilter http have been called', (done) => {
+    httpClientMock.get.mockReturnValue(of(movieListMock)); // of() para que la respuesta sea un observable (por el subscribe)
+    service.getGenreFilter(mockPage1, mockGenreId1, mockSelectedSort1).subscribe((res) => {
+      expect(res.length).toBe(20);
+      done();
+    })
+    // service.getGenreFilter(mockPage1, mockGenreId1, mockSelectedSort1);
+    // expect(httpClientMock.get).toHaveBeenCalled();
   });
 
   it('getGenresList http have been called', () => {
