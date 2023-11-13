@@ -4,11 +4,8 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "types": [
-      "jest", // cambié jasmine
-      "node"
-    ],
-    "experimentalDecorators": true, // agregado
-    "emitDecoratorMetadata": true, // agregado
+      "jest" // Antes iba "jasmine"
+    ]
   },
   "include": [
     "src/**/*.spec.ts",
