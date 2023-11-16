@@ -1,8 +1,8 @@
 import { Input, Component, inject, ChangeDetectorRef } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiService } from '../../services/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
-import { SharedServiceService } from 'src/app/services/shared/shared-service.service';
+import { SharedServiceService } from '../../services/shared/shared-service.service';
 import { combineLatest } from 'rxjs';
 
 @Component({

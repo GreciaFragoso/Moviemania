@@ -1,6 +1,6 @@
-import { Output, Component, EventEmitter } from '@angular/core';
-import { ApiService } from 'src/app/services/api.service'; 
-import { SharedServiceService } from 'src/app/services/shared/shared-service.service';
+import { ApiService } from '../../services/api.service'
+import { Component } from '@angular/core';
+import { SharedServiceService } from '../../services/shared/shared-service.service';
 
 @Component({
   selector: 'app-buttons-container',
@@ -14,7 +14,6 @@ export class ButtonsContainerComponent {
   sortOptions: any[] = [{option: 'popularity.desc', text: 'More popular'}, 
                         {option: 'vote_average.desc', text: 'Best voted'},
                         {option: 'vote_average.asc', text: 'Worst voted'}];
-  // selectedSort: string = '';
   defaultSort: string = 'popularity.desc'
 
   ngOnInit() {
@@ -44,7 +43,5 @@ export class ButtonsContainerComponent {
       this.sharedService.selectedSort(selectedSortOption.option);
       console.log(selectedSortOption.option);
     }
-    // this.sharedService.selectedSort(sortOption);
-    // console.log(sortOption);
   }
 }

@@ -15,7 +15,16 @@ describe('FooterComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should show author', () => {
+    const webAuthor = 'Powered with ♥ by Grecia Fragoso';
+    const year = 'Laboratoria, 2023';
+
+    fixture.detectChanges();
+
+    const webAuthorElement = fixture.nativeElement.querySelectorAll('p')[0];
+    const yearElement = fixture.nativeElement.querySelectorAll('p')[1];
+
+    expect(webAuthorElement.textContent).toContain(webAuthor);
+    expect(yearElement.textContent).toContain(year);
   });
 });

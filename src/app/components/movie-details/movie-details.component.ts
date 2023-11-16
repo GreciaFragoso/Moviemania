@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+import { ApiService } from '../../services/api.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -34,11 +34,6 @@ export class MovieDetailsComponent implements OnInit {
       console.log(this.id)
       this.fillDetails(this.id);
     })
-    // this.route.queryParams.subscribe((params: ParamMap) => {
-    //     console.log(params)
-    //     this.query = params.get('q')!;
-    //     // this.fillDetails()
-    //   })
   }
 
   fillDetails(movieid: number) {
@@ -48,20 +43,6 @@ export class MovieDetailsComponent implements OnInit {
       this.releaseYear = this.details.release_date.slice(0,4);
       console.log(this.details.genres)
       this.movieGenres = this.details.genres // asigno géneros de la  película actual
-      // console.log(this.movieGenres)
-      // this.backdrop_image = this.imgs_url + this.details.backdrop_path;
-      // this.apiService.getGenresList().subscribe(genres => { // solicito respuesta de API de la lista de géneros
-      //   // console.log(this.movieGenres)
-      //   this.movieGenres.forEach((element: object) => { // for each a los géneros de la película
-      //     for(let i = 0; i < genres.genres.length; i++) {
-      //       if(genres.genres[i].id === element.id) { // compara t
-      //         this.genresStrings.push(genres.genres[i].name);
-      //       }
-      //     }
-      //   })
-      //   console.log(this.genresStrings)
-      //   return this.genresStrings;
-      // })
     })
   }
 
