@@ -3,7 +3,7 @@ import { ApiService } from '../../services/api.service';
 import { PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { SharedServiceService } from '../../services/shared/shared-service.service';
-import { combineLatest } from 'rxjs';
+import { combineLatest, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-cards-container',
@@ -22,6 +22,9 @@ export class CardsContainerComponent {
   selectedSort: string = '';
   filterOption: string = '';
   release_year: string = '';
+  default_sort: string = 'popularity.desc';
+  default_filter: string = '28';
+  data: any = [];
  
   constructor(private apiService: ApiService, 
               private router: Router, 
@@ -34,6 +37,12 @@ export class CardsContainerComponent {
   }
 
   ngOnInit() {
+    //llena por primera vez con valores predeterminados
+    this.filterOption = this.default_filter;
+    this.selectedSort = this.default_sort;
+    this.llenarData(this.currentPage, this.filterOption, this.selectedSort);
+
+    // escucha futuros cambios
     combineLatest([
       this.sharedService.filterSelected$,
       this.sharedService.selectedSort$
@@ -43,23 +52,7 @@ export class CardsContainerComponent {
       this.llenarData(this.currentPage, this.filterOption, this.selectedSort);
       console.log(this.filterOption)
       console.log(this.selectedSort)
-      // this.cdRef.detectChanges();
     })
-    // this.sharedService.filterSelected$.subscribe(filtro => {
-    //   this.filterOption = filtro;
-    //   this.cdRef.detectChanges();
-    //   this.llenarData(this.currentPage, this.filterOption, this.selectedSort); // coloco mi función de llenar data dentro del escuchador de cambios
-    //   console.log(this.filterOption);
-    // })
-
-    // this.sharedService.selectedSort$.subscribe(orden => {
-    //   this.selectedSort = orden;
-    //   this.cdRef.detectChanges();
-    //   this.llenarData(this.currentPage, this.filterOption, this.selectedSort);
-    //   console.log(this.filterOption);
-    // })
-    // this.llenarData(this.currentPage, this.filterOption);
-    // console.log(this.filterOption)
   }
 
   receiveFilterSelected(filterOption: string) {

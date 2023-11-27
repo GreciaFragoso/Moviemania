@@ -34,7 +34,7 @@ export class ButtonsContainerComponent {
     // this.filterSelected.emit(filterOption);
     this.sharedService.selectedFilter(filterOption);
     console.log(filterOption)
-    this.selectedFilterId = filterOption;
+    this.selectedFilterId = filterOption; // para asignar la clase al botón seleccionado
 
   }
 
