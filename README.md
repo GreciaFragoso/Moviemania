@@ -1,47 +1,9 @@
 # Moviemania
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
+Este proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6 y mediante el consumo de [The Movie DB](https://developer.themoviedb.org/) usando el endpoint [discover/movie](https://developer.themoviedb.org/reference/discover-movie).
 
-## Development server
+## Funcionalidades
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+El usuario puede elegir el tipo de ordenamiento según popularidad o votos y los filtros según géneros se obtienen también de TMDB mediante el endpoint [genres](https://developer.themoviedb.org/reference/genre-movie-list), a partir de cuya respuesta se generan los botones.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-
-        <!-- "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
-            "tsConfig": "tsconfig.spec.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
-          }
-        } -->
+Adicionalmente, el usuario puede visualizar los detalles de la película elegida dando click en la portada, generando una nueva pestaña para la visualización del póster, sinópsis, año de lanzamiento, votos e información adicional.
