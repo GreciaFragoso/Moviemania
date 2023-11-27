@@ -50,4 +50,5 @@ img {
 mat-paginator {
     background-color: rgb(197, 157, 228);
     font-family: 'Lato', sans-serif;
+    border-radius: 10px;
 }
