@@ -5,6 +5,10 @@
     </select>
     <h1>Filter</h1>
     <section class = 'buttons-container'>
-        <button *ngFor="let filter of AllFilters" (click) = "OnSelectedFilter(filter.id.toString())">{{filter.name}}</button>
+        <button 
+        *ngFor="let filter of AllFilters" 
+        (click) = "OnSelectedFilter(filter.id.toString())"
+        [class.selected-filter]="filter.id.toString() === selectedFilterId"
+        >{{filter.name}}</button>
     </section>
 </section>

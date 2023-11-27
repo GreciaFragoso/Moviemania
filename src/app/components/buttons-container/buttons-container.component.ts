@@ -21,6 +21,7 @@ export class ButtonsContainerComponent {
   }
 
   AllFilters: any[] = [];
+  selectedFilterId: string | null = null;
 
   getAllGenres() {
     this.apiService.getGenresList().subscribe(data => {
@@ -33,6 +34,8 @@ export class ButtonsContainerComponent {
     // this.filterSelected.emit(filterOption);
     this.sharedService.selectedFilter(filterOption);
     console.log(filterOption)
+    this.selectedFilterId = filterOption;
+
   }
 
   // función para el select
