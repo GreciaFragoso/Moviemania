@@ -21,6 +21,14 @@
     margin: 0;
     padding: 0;
     overflow: hidden;
+    border-radius: 10px;
+    filter: grayscale(0.5);
+}
+
+.card:hover{
+    box-shadow: 0 0 20px rgba(52, 152, 219, 0.7);
+    transform: scale(1.1);
+    filter: grayscale(0);
 }
 
 .movietitle {
